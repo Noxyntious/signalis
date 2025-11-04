@@ -340,3 +340,87 @@ body {
     font-size: 22pt;
     margin-left: 55px;
 }
+
+/* Diagnostics page */
+.signalis-diag-text {
+    font-family: 'visitor2', monospace;
+    font-size: 30pt;
+    color: black;
+    margin: 10px auto;
+    user-select: none;
+    background-color: rgb(188, 69, 29);
+    padding: 1px 40px;
+    width: 280px;
+    text-align: center;
+    font-weight: 80;
+}
+
+.signalis-diag-hexagon {
+    width: 400px;
+    height: 400px;
+    margin: 12px auto 0 auto;
+    position: relative;
+    display: block;
+    pointer-events: none;
+}
+
+.signalis-diag-hexagon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    -webkit-clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+    clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+    background: white;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.signalis-diag-hexagon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    -webkit-clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+    clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+    background: black;
+    transform: scale(0.98);
+    transform-origin: center;
+    margin: auto;
+    border-radius: 2px;
+}
+
+.signalis-diag-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.signalis-diag-text-vertical {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: none;
+    margin: 0;
+    padding: 4px 6px;
+    width: 40px;
+    height: 400px;
+    box-sizing: border-box;
+}
+
+.signalis-diag-controls > .signalis-diag-text-vertical:first-child {
+    margin-right: -40px;
+}
+.signalis-diag-controls > .signalis-diag-text-vertical:last-child {
+    margin-left: -40px;
+}
+
+.signalis-diag-hexagon {
+    flex: 0 0 400px;
+    width: 400px;
+    height: 400px;
+    min-width: 400px;
+    min-height: 400px;
+}
