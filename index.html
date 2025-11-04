@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="crt.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            overflow: hidden;
+        }
+        #viewport {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        #scale-wrap {
+            width: 1504px;
+            height: 898px;
+            transform-origin: center center;
+            /* lock viewport res to 1504x898 (see JS comments) */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="viewport">
+        <div id="scale-wrap">
+            <div class="main crt-scanlines crt-flicker" id="main">
+        <div class="signalis-window">
+            <div class="signalis-header"><br /></div>
+            <h1 class="signalis-header-text">RECEIVER</h1>
+            <div class="signalis-receiver"> 
+            <p class="signalis-freq-label">FREQ</p>
+                <div class="signalis-inside-border">
+                <p class="signalis-receiver-freq">95.000</p>
+            </div>
+            <p class="signalis-freq-label">KHZ</p>
+            </div>
+            <div class="signalis-freq">
+                <div class="signalis-buttons">
+                    <div class="signalis-button-on"><p>TUNER</p></div>
+                    <div class="signalis-button-on"><p>WELLE</p></div>
+                    <div class="signalis-button-off"><p>ATT</p></div>
+                    <div class="signalis-button-on"><p>BURST</p></div>
+                    <div class="signalis-button-off"><p>TEST</p></div>
+                    <div class="signalis-button-off"><p style="transform: scale(0.8, 1.1)">SIGNAL</p></div>
+                    <div class="signalis-button-on"><p>DATA</p></div>
+                </div>
+                <div class="signalis-freq-2">
+                    <div class="signalis-freq-scale">50 100 150 200 250</div>
+                    <div class="signalis-freq-line">
+                        <span class="signalis-freq-arrow left">◄</span>
+                        <span class="signalis-terminator left"></span>
+                        <hr />
+                        <span class="signalis-terminator right"></span>
+                        <span class="signalis-freq-arrow right">►</span>
+                    </div>
+                    <div class="signalis-freq-visualizer">
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr />
+                        <hr style="border: 3px dotted white;" />
+                        <!-- what was i thinking -->
+                    </div>
+                    <div class="signalis-freq-icons">
+                        ▼ ▲ ▼ ▲ ⋮⋮⋮ 〇
+                    </div>
+                </div>
+            </div>
+            <div class="signalis-transcription-window">
+                <div class="signalis-header" style="padding: 0;"><p class="signalis-transcription-header">TRANSKRIPTION</p></div>
+                <p class="signalis-transcription-text">EMERGENCY BEACON PENROSE-512</p>
+            </div>
+        </div>
+        <div class="signalis-window">
+            <div class="signalis-header"><br /></div>
+            <h1 class="signalis-header-text">MEMORY</h1>
+            <div class="signalis-memory-window">
+                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(99, 98, 98)">Test link</a>
+                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(116, 115, 115)">Test link</a>
+                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(152, 152, 152)">Test link</a>
+                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(182, 182, 182)">Test link</a>
+                <a href="google.com" class="signalis-memory-link" style="background-color: white">Test link</a>
+                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(99, 98, 98)">Test link</a>
+                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(80, 80, 80)">Test link</a>
+                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(70, 70, 70)">Test link</a>
+                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(60, 60, 60)">Test link</a>
+            </div>
+        </div>
+    
+        <div class="signalis-window">
+            <div class="signalis-header"><br /></div>
+            <h1 class="signalis-header-text">DIAGNOSTICS</h1>
+            
+        </div>
+            </div>
+        </div>
+    </div>
+<!--
+    <div class="small">
+        <h1>test</h1>
+    </div>
+    -->
+    <script>
+        // lock the screen to 1504x898 as that's the screen res of my Surface and it started breaking on other reses
+        (function () {
+            const DESIGN_W = 1504;
+            const DESIGN_H = 898;
+            const wrap = document.getElementById('scale-wrap');
+
+            function applyScale() {
+                const vw = window.innerWidth;
+                const vh = window.innerHeight;
+                const scale = Math.min(vw / DESIGN_W, vh / DESIGN_H);
+                wrap.style.transform = 'scale(' + scale + ')';
+            }
+            let resizeTimer = null;
+            window.addEventListener('resize', function () {
+                if (resizeTimer) clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    applyScale();
+                }, 50);
+            });
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', applyScale);
+            } else {
+                applyScale();
+            }
+        })();
+    </script>
+</body>
+
+</html>
