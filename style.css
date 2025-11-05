@@ -47,8 +47,8 @@ body {
     flex-wrap: wrap;
     height: 800px;
     width: 100%;
+    user-select: none;
 }
-
 
 .signalis-window {
     border: 2px solid rgb(188, 69, 29);
@@ -483,4 +483,119 @@ body {
     font-size: 19pt;
     top: 440px;
     line-height: 0.7;
+}
+.signalis-diag-status-display {
+    width: 400px;
+    height: 120px;
+    display: flex;
+    gap: 6px;
+}
+.signalis-diag-status-text {
+    font-family: 'munro', monospace;
+    font-size: 16pt;
+    margin: 0;
+    padding-left: 10px
+}
+.signalis-diag-status-window {
+    width: 270px;
+    height: 75%;
+    border: 2px solid white;
+    border-radius: 12px 0 12px 0;
+}
+.signalis-diag-status-window-infill {
+    width: 98%;
+    height: 93%;
+    background-color: rgb(57, 179, 220);
+    margin: 3px auto;
+    border-radius: 10px 0 10px 0;
+}
+.signalis-diag-nominal-text {
+    font-family: 'vga', monospace;
+    font-size: 20pt;
+    margin: 0;
+    padding: 4px;
+    padding-right: 16px;
+    text-align: right;
+    color: black;
+    font-weight: lighter;
+    transform: scale(1.1, 1.2);
+}
+.signalis-diag-plus-icon {
+    font-family: 'vga', monospace;
+    font-size: 48pt;
+    margin: 0 0 0 0;
+    padding: 0;
+    text-align: left;
+    bottom: 2px;
+    color: black;
+    font-weight: lighter;
+}
+.signalis-diag-status-icon {
+    height: 48px;
+    width: 48px;
+    border: 2px solid rgb(63, 63, 63);
+    border-radius: 6px;
+}
+.signalis-diag-status-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    width: fit-content;
+    margin: 4px 10px 0 20px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.signalis-diag-status-progressbars {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: auto;
+    margin-right: 10px;
+    justify-content: center;
+    height: 100%;
+    color: white;
+    text-align: right;
+}
+.signalis-diag-status-progressbar {
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+}
+.signalis-ds-pb-text {
+    font-family: 'visitor2', monospace;
+    font-size: 28pt;
+    margin: 0;
+    padding-right: 10px;
+    align-self: right;
+    text-align: right;
+    line-height: 0.4;
+    color: rgb(63, 63, 63);
+    width: 70px;
+}
+.signalis-ds-pb-line {
+    flex: 0.8 0.8 auto;
+    height: 1px;
+    border: 2px solid rgb(63, 63, 63);
+    background-color: rgb(63, 63, 63);
+    box-sizing: border-box;
+    justify-self: center;
+    margin-top: 4px;
+}
+.signalis-square-with-line-in-it-lol {
+    width: 40px;
+    height: 40px;
+    right: 40px;
+    border: 3px solid white;
+    margin: 0 auto;
+    margin-top: 35px;
+    position: absolute;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' preserveAspectRatio='none'><line x1='2' y1='2' x2='38' y2='38' stroke='white' stroke-width='3' stroke-linecap='square'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+.signalis-lstr-logo {
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
 }
