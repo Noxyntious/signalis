@@ -30,6 +30,32 @@
     font-display: swap;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+#viewport {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#scale-wrap {
+    width: 1504px;
+    height: 898px;
+    transform-origin: center center;
+    /* lock viewport res to 1504x898 (see JS comments) */
+}
+
 body {
     background-color: black;
     color: white;
@@ -38,6 +64,7 @@ body {
     display: flex;
     align-items: center;
 }
+
 .main {
     display: flex;
     gap: 10px;
@@ -150,11 +177,13 @@ body {
     font-size: 22pt;
     text-align: center;
 }
+
 .signalis-button-off p {
     transform: scale(1, 1.1);
-    padding:0;
+    padding: 0;
     margin: 0;
 }
+
 .signalis-button-on {
     border: 2px solid rgb(188, 69, 29);
     color: rgb(188, 69, 29);
@@ -163,9 +192,10 @@ body {
     font-size: 22pt;
     text-align: center;
 }
+
 .signalis-button-on p {
     transform: scale(1, 1.1);
-    padding:0;
+    padding: 0;
     margin: 0;
 }
 
@@ -188,6 +218,7 @@ body {
 .signalis-freq .signalis-buttons {
     flex: 0 0 80px;
 }
+
 .signalis-freq .signalis-freq-visualizer {
     flex: 1 1 auto;
 }
@@ -207,10 +238,10 @@ body {
 }
 
 .signalis-freq-2 .signalis-freq-visualizer {
-    flex: 1 1 auto; 
+    flex: 1 1 auto;
 }
 
-.signalis-receiver > .signalis-freq-label {
+.signalis-receiver>.signalis-freq-label {
     margin: 0;
     line-height: 1;
     user-select: none;
@@ -222,7 +253,7 @@ body {
 .signalis-receiver .signalis-inside-border {
     margin: 0;
     width: auto;
-   
+
     display: flex;
     align-items: baseline;
     justify-content: flex-end;
@@ -245,6 +276,7 @@ body {
     background-color: white;
     color: black;
 }
+
 .main .signalis-window:first-child {
     flex: 0.8 1 0;
 }
@@ -281,7 +313,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1px;
-    font-size: 26pt; 
+    font-size: 26pt;
     width: 100%;
     box-sizing: border-box;
 }
@@ -368,8 +400,8 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-     -webkit-clip-path: polygon(50% 0%, 93.3% 24%, 93.3% 76%, 50% 100%, 6.7% 76%, 6.7% 24%);
-     clip-path: polygon(50% 0%, 93.3% 24%, 93.3% 76%, 50% 100%, 6.7% 76%, 6.7% 24%);
+    -webkit-clip-path: polygon(50% 0%, 93.3% 24%, 93.3% 76%, 50% 100%, 6.7% 76%, 6.7% 24%);
+    clip-path: polygon(50% 0%, 93.3% 24%, 93.3% 76%, 50% 100%, 6.7% 76%, 6.7% 24%);
     background: white;
     box-sizing: border-box;
     border-radius: 2px;
@@ -415,30 +447,30 @@ body {
     box-sizing: border-box;
 }
 
-.signalis-diag-controls > .signalis-diag-text-vertical {
+.signalis-diag-controls>.signalis-diag-text-vertical {
     position: relative;
 }
 
-.signalis-diag-controls > .signalis-diag-text-vertical::after {
+.signalis-diag-controls>.signalis-diag-text-vertical::after {
     content: '';
     position: absolute;
     top: 0;
     height: 100%;
-    width: 26px;  
+    width: 26px;
     background: transparent;
     border: 2px solid rgb(63, 63, 63);
     box-sizing: border-box;
 }
 
-.signalis-diag-controls > .signalis-diag-text-vertical:first-child::after {
+.signalis-diag-controls>.signalis-diag-text-vertical:first-child::after {
     right: 46px;
 }
 
-.signalis-diag-controls > .signalis-diag-text-vertical:last-child::after {
+.signalis-diag-controls>.signalis-diag-text-vertical:last-child::after {
     left: -32px;
 }
 
-.signalis-diag-controls > .signalis-diag-text-vertical::before {
+.signalis-diag-controls>.signalis-diag-text-vertical::before {
     content: '';
     position: absolute;
     top: 145px;
@@ -449,21 +481,23 @@ body {
     z-index: 20;
 }
 
-.signalis-diag-controls > .signalis-diag-text-vertical:first-child::before { 
+.signalis-diag-controls>.signalis-diag-text-vertical:first-child::before {
     right: 46px
 }
-.signalis-diag-controls > .signalis-diag-text-vertical:last-child::before {
+
+.signalis-diag-controls>.signalis-diag-text-vertical:last-child::before {
     left: -32px;
 }
 
-.signalis-diag-controls > .signalis-diag-text-vertical::after {
+.signalis-diag-controls>.signalis-diag-text-vertical::after {
     z-index: 10;
 }
 
-.signalis-diag-controls > .signalis-diag-text-vertical:first-child {
+.signalis-diag-controls>.signalis-diag-text-vertical:first-child {
     margin-right: -40px;
 }
-.signalis-diag-controls > .signalis-diag-text-vertical:last-child {
+
+.signalis-diag-controls>.signalis-diag-text-vertical:last-child {
     margin-left: -40px;
 }
 
@@ -479,29 +513,33 @@ body {
     font-family: 'munro', monospace;
     width: 40px;
     left: 85px;
-    position:absolute;
+    position: absolute;
     font-size: 19pt;
     top: 440px;
     line-height: 0.7;
 }
+
 .signalis-diag-status-display {
     width: 400px;
     height: 120px;
     display: flex;
     gap: 6px;
 }
+
 .signalis-diag-status-text {
     font-family: 'munro', monospace;
     font-size: 16pt;
     margin: 0;
     padding-left: 10px
 }
+
 .signalis-diag-status-window {
     width: 270px;
     height: 75%;
     border: 2px solid white;
     border-radius: 12px 0 12px 0;
 }
+
 .signalis-diag-status-window-infill {
     width: 98%;
     height: 93%;
@@ -509,6 +547,7 @@ body {
     margin: 3px auto;
     border-radius: 10px 0 10px 0;
 }
+
 .signalis-diag-nominal-text {
     font-family: 'vga', monospace;
     font-size: 20pt;
@@ -520,6 +559,7 @@ body {
     font-weight: lighter;
     transform: scale(1.1, 1.2);
 }
+
 .signalis-diag-plus-icon {
     font-family: 'vga', monospace;
     font-size: 48pt;
@@ -530,12 +570,14 @@ body {
     color: black;
     font-weight: lighter;
 }
+
 .signalis-diag-status-icon {
     height: 48px;
     width: 48px;
     border: 2px solid rgb(63, 63, 63);
     border-radius: 6px;
 }
+
 .signalis-diag-status-icons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -545,6 +587,7 @@ body {
     justify-content: flex-end;
     align-items: center;
 }
+
 .signalis-diag-status-progressbars {
     display: flex;
     flex-direction: column;
@@ -556,11 +599,13 @@ body {
     color: white;
     text-align: right;
 }
+
 .signalis-diag-status-progressbar {
     display: flex;
     flex-direction: row;
     text-align: right;
 }
+
 .signalis-ds-pb-text {
     font-family: 'visitor2', monospace;
     font-size: 28pt;
@@ -572,6 +617,7 @@ body {
     color: rgb(63, 63, 63);
     width: 70px;
 }
+
 .signalis-ds-pb-line {
     flex: 0.8 0.8 auto;
     height: 1px;
@@ -581,6 +627,7 @@ body {
     justify-self: center;
     margin-top: 4px;
 }
+
 .signalis-square-with-line-in-it-lol {
     width: 40px;
     height: 40px;
@@ -594,6 +641,7 @@ body {
     background-position: center;
     background-size: 100% 100%;
 }
+
 .signalis-lstr-logo {
     position: absolute;
     bottom: 0px;
