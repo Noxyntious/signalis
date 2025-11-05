@@ -222,7 +222,7 @@ body {
 .signalis-receiver .signalis-inside-border {
     margin: 0;
     width: auto;
-    /*padding: 4px 26px;*/
+   
     display: flex;
     align-items: baseline;
     justify-content: flex-end;
@@ -341,7 +341,7 @@ body {
     margin-left: 55px;
 }
 
-/* Diagnostics page */
+
 .signalis-diag-text {
     font-family: 'visitor2', monospace;
     font-size: 30pt;
@@ -357,7 +357,7 @@ body {
 
 .signalis-diag-hexagon {
     width: 400px;
-    height: 400px;
+    height: 380px;
     margin: 12px auto 0 auto;
     position: relative;
     display: block;
@@ -368,8 +368,8 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    -webkit-clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
-    clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+     -webkit-clip-path: polygon(50% 0%, 93.3% 24%, 93.3% 76%, 50% 100%, 6.7% 76%, 6.7% 24%);
+     clip-path: polygon(50% 0%, 93.3% 24%, 93.3% 76%, 50% 100%, 6.7% 76%, 6.7% 24%);
     background: white;
     box-sizing: border-box;
     border-radius: 2px;
@@ -379,9 +379,13 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    -webkit-clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
-    clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
-    background: black;
+    -webkit-clip-path: polygon(50% 0%, 93.3% 24%, 93.3% 76%, 50% 100%, 6.7% 76%, 6.7% 24%);
+    clip-path: polygon(50% 0%, 93.3% 24%, 93.3% 76%, 50% 100%, 6.7% 76%, 6.7% 24%);
+    background:
+        url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cline x1='6.7' y1='24.0' x2='93.3' y2='76.0' stroke='rgb(80,80,80)' stroke-width='0.5' stroke-linecap='square'/%3E%3Cline x1='6.7' y1='76.0' x2='93.3' y2='24.0' stroke='rgb(80,80,80)' stroke-width='0.5' stroke-linecap='square'/%3E%3Cline x1='50.0' y1='0.0' x2='50.0' y2='100.0' stroke='rgb(80,80,80)' stroke-width='0.5' stroke-linecap='square'/%3E%3Crect x='17.8' y='17.8' width='64.3' height='64.3' fill='none' stroke='rgb(80,80,80)' stroke-width='0.5'/%3E%3Crect x='39.2' y='39.2' width='21.7' height='21.7' fill='none' stroke='rgb(80,80,80)' stroke-width='0.5'/%3E%3Crect x='48.8' y='48.8' width='2.5' height='2.5' fill='rgb(188,69,29)' stroke='none'/%3E%3C/svg%3E"),
+        black;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100% 100%, cover;
     transform: scale(0.98);
     transform-origin: center;
     margin: auto;
@@ -394,6 +398,7 @@ body {
     justify-content: center;
     gap: 12px;
     margin-top: 8px;
+    position: relative;
 }
 
 .signalis-diag-text-vertical {
@@ -410,6 +415,51 @@ body {
     box-sizing: border-box;
 }
 
+.signalis-diag-controls > .signalis-diag-text-vertical {
+    position: relative;
+}
+
+.signalis-diag-controls > .signalis-diag-text-vertical::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 26px;  
+    background: transparent;
+    border: 2px solid rgb(63, 63, 63);
+    box-sizing: border-box;
+}
+
+.signalis-diag-controls > .signalis-diag-text-vertical:first-child::after {
+    right: 46px;
+}
+
+.signalis-diag-controls > .signalis-diag-text-vertical:last-child::after {
+    left: -32px;
+}
+
+.signalis-diag-controls > .signalis-diag-text-vertical::before {
+    content: '';
+    position: absolute;
+    top: 145px;
+    height: 110px;
+    width: 26px;
+    background: black;
+    box-sizing: border-box;
+    z-index: 20;
+}
+
+.signalis-diag-controls > .signalis-diag-text-vertical:first-child::before { 
+    right: 46px
+}
+.signalis-diag-controls > .signalis-diag-text-vertical:last-child::before {
+    left: -32px;
+}
+
+.signalis-diag-controls > .signalis-diag-text-vertical::after {
+    z-index: 10;
+}
+
 .signalis-diag-controls > .signalis-diag-text-vertical:first-child {
     margin-right: -40px;
 }
@@ -420,7 +470,17 @@ body {
 .signalis-diag-hexagon {
     flex: 0 0 400px;
     width: 400px;
-    height: 400px;
+    height: 380px;
     min-width: 400px;
-    min-height: 400px;
+    min-height: 380px;
+}
+
+.signalis-system-text {
+    font-family: 'munro', monospace;
+    width: 40px;
+    left: 85px;
+    position:absolute;
+    font-size: 19pt;
+    top: 440px;
+    line-height: 0.7;
 }
