@@ -71,6 +71,10 @@ body {
     transform-origin: center center;
     /* lock viewport res to 1504x898 (see JS comments) */
 }
+#viewport > #scale-wrap {
+    flex: 0 0 1504px;
+    max-width: none;
+}
 
 body {
     background-color: black;
