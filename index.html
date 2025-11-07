@@ -194,6 +194,12 @@
             settingsmenu.classList.toggle("crt-flicker");
         }
         function playThreenote() {
+            // stop all audio first
+            const audios = document.querySelectorAll("audio");
+            audios.forEach((audio) => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
             const audio = new Audio('threenote.mp3');
             const transcriptiontext = document.getElementById("signalis-transcription-text");
             const threenote = "39486 60170 24326 01064 97867 51314 59687 59508 08967 46534";
