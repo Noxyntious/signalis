@@ -200,6 +200,9 @@
             transcriptiontext.innerText = threenote;
             console.warn(threenote);
             audio.play();
+            audio.onended = () => {
+                transcriptiontext.innerText = "EMERGENCY BEACON PENROSE-512";
+            };
         }
     </script>
 </body>
