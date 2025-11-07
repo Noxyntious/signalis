@@ -72,15 +72,15 @@
             <div class="signalis-header"><br /></div>
             <h1 class="signalis-header-text">MEMORY</h1>
             <div class="signalis-memory-window">
-                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(99, 98, 98)">Test link</a>
-                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(116, 115, 115)">Test link</a>
-                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(152, 152, 152)">Test link</a>
-                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(182, 182, 182)">Test link</a>
-                <a href="google.com" class="signalis-memory-link" style="background-color: white">Test link</a>
-                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(99, 98, 98)">Test link</a>
-                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(80, 80, 80)">Test link</a>
-                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(70, 70, 70)">Test link</a>
-                <a href="google.com" class="signalis-memory-link" style="background-color: rgb(60, 60, 60)">Test link</a>
+                <a href="old/" class="signalis-memory-link" style="background-color: rgb(99, 98, 98)">Older sites</a>
+                <a href="files/" class="signalis-memory-link" style="background-color: rgb(116, 115, 115)">Files</a>
+                <a href="https://c.im/@noxyntious" class="signalis-memory-link" style="background-color: rgb(152, 152, 152)">Fedi</a>
+                <a href="https://x.com/eepyeri" class="signalis-memory-link" style="background-color: rgb(182, 182, 182)">Twitter</a>
+                <a href="https://github.com/Noxyntious" class="signalis-memory-link" style="background-color: white">GitHub</a>
+                <a href="https://discord.com/users/755065657774702603" class="signalis-memory-link" style="background-color: rgb(99, 98, 98)">Discord</a>
+                <a href="https://bsky.app/profile/eri.nijika.dev" class="signalis-memory-link" style="background-color: rgb(80, 80, 80)">Bluesky</a>
+                <a href="credits" class="signalis-memory-link" style="background-color: rgb(70, 70, 70)">Credits</a>
+                <a href="mailto:eri@nijika.dev" class="signalis-memory-link" style="background-color: rgb(60, 60, 60)">E-Mail</a>
             </div>
         </div>
     
@@ -200,6 +200,9 @@
             transcriptiontext.innerText = threenote;
             console.warn(threenote);
             audio.play();
+            audio.onended = () => {
+                transcriptiontext.innerText = "EMERGENCY BEACON PENROSE-512";
+            };
         }
     </script>
 </body>
