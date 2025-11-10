@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[This space intentionally left blank.]</title>
-    <link rel="stylesheet" href="style.css?v=1.1"> <!-- main stylesheet -->
+    <link rel="stylesheet" href="style.css?v=1.2"> <!-- main stylesheet -->
     <link rel="stylesheet" href="crt.css"> <!-- CRT effect stylesheet -->
 </head>
 <!-- babe wake up its time to remember our promise -->
@@ -163,6 +163,7 @@
     </div>
     <script src="scaler.js"> </script> <!-- lock the screen to 1504x898 as that's the screen res of my Surface and it started breaking on other reses -->
     <script>
+        var audio;
         function triggerMenu() {
             const menu = document.getElementById("signalis-settings-menu");
             if (menu.style.display === "none" || menu.style.display === "") {
@@ -194,15 +195,25 @@
             settingsmenu.classList.toggle("crt-flicker");
         }
         function playThreenote() {
-            const audio = new Audio('threenote.mp3');
             const transcriptiontext = document.getElementById("signalis-transcription-text");
             const threenote = "39486 60170 24326 01064 97867 51314 59687 59508 08967 46534";
-            transcriptiontext.innerText = threenote;
-            console.warn(threenote);
-            audio.play();
-            audio.onended = () => {
+            if (!audio) {
+                audio = new Audio("threenote.mp3");
+                audio.preload = "auto";
+                audio.onended = () => {
+                    transcriptiontext.innerText = "EMERGENCY BEACON PENROSE-512";
+                };
+            }
+
+            if (audio.paused) {
+                transcriptiontext.innerText = threenote;
+                audio.currentTime = 0;
+                audio.play();
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
                 transcriptiontext.innerText = "EMERGENCY BEACON PENROSE-512";
-            };
+            }
         }
         function toggleCredits() {
             alert("love to rose-engine for making SIGNALIS <3\nsite made by eri\nfonts used: mittel, monommm, munro small, perfect dos vga and visitor2\nsound: three note oddity from the conet project\nlstr logo recreation made by u/crippled_trash_can on reddit\n\nthe radio tower hides a secret...");
