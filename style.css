@@ -88,6 +88,31 @@ body {
     overflow: hidden;
 }
 
+@media screen and (orientation: portrait) { /* portrait mode hacks, i value my life too much to make a proper layout */
+    #signalis-receiver-window {
+        display: none !important;
+    }
+    #signalis-diagnostics-window {
+        display: none !important;
+    }
+    #scale-wrap {
+        width: 100vw;
+        height: 100vh;
+        transform: none !important;
+    }
+    #viewport > #scale-wrap {
+        flex: 1 1 auto;
+        max-width: 100%;
+    }
+    .signalis-window {
+        border: 2px solid rgb(188, 69, 29);
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+}
+
 #scale-wrap {
     width: 1504px;
     height: 898px;
