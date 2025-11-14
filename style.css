@@ -49,6 +49,12 @@
   }
 }
 
+@supports (-webkit-appearance: none) {
+  .signalis-receiver-freq {
+    padding-top: 20px; /* Safari-specific fixes. Thanks WebKit. */
+  }
+}
+
 body::before {
   contain: paint;
 }
